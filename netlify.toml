@@ -1,18 +1,9 @@
 [build]
-  command = "npm run bootstrap && npm run build:one components && npm run build:one trader"
+  command = "npm install && npm run bootstrap && npm run build:one components && npm run build:one trader"
   publish = "dist/packages/trader/dist"
-  environment = { NODE_VERSION = "20.19.1", CI = "false", NODE_OPTIONS = "--max_old_space_size=4096" }
+  environment = { NODE_VERSION = "16.16.0", CI = "false", NODE_OPTIONS = "--max_old_space_size=4096" }
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[[plugins]]
-  package = "netlify-plugin-cache"
-  [plugins.inputs]
-  paths = [
-    "node_modules",
-    "packages/*/node_modules",
-    ".cache"
-  ]
