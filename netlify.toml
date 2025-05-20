@@ -2,7 +2,7 @@
   command = "npm run bootstrap && npm run build:one components && npm run build:one trader"
   publish = "dist/packages/trader/dist"
   environment = { 
-    NODE_VERSION = "16.16.0",  # Must match DerivApp requirements
+    NODE_VERSION = "20.19.1",  # Must match DerivApp requirements
     CI = "false",
     NODE_OPTIONS = "--max_old_space_size=4096"
   }
