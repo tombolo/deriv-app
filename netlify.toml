@@ -1,6 +1,6 @@
 [build]
-  command = "npm run generate-icons-manifest && npm run bootstrap && npm run build:one trader --verbose"
-  publish = "packages/trader/dist"
+  command = "npm run build:all --verbose"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
