@@ -1,6 +1,6 @@
 [build]
   command = "npm install && npm run bootstrap && npm run build:one components && npm run build:one trader"
-  publish = "packages/trader/dist"
+  publish = "packages/trader/build"
   environment = { NODE_VERSION = "16.16.0", CI = "false", NODE_OPTIONS = "--max_old_space_size=4096" }
 
 [[redirects]]
