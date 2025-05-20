@@ -1,16 +1,9 @@
 [build]
-  command = "npm run build:all --verbose"
-  publish = "dist"
+  command = "npm run bootstrap && npm run build:one trader"
+  publish = "dist/packages/trader/dist"
+  environment = { NODE_VERSION = "20.19.1" }
 
-[build.environment]
-  NODE_VERSION = "20"
-  NPM_VERSION = "10.9.2"
-
-# Optional: Cache node_modules to speed up builds
-[[plugins]]
-  package = "@netlify/plugin-cache-core"
-
-# Optional: If you're using Nx, this speeds up caching
-[build.processing]
-  skip_processing = true
-
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
