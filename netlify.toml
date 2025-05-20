@@ -1,7 +1,16 @@
 [build]
-  command = "npm run bootstrap && npm run build:one trader"
+  command = "npm run generate-icons-manifest && npm run bootstrap && npm run build:one trader --verbose"
   publish = "packages/trader/dist"
 
-[context.production.environment]
-  NODE_VERSION = "16.16.0"
-  NPM_VERSION = "7.21.0"
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_VERSION = "10.9.2"
+
+# Optional: Cache node_modules to speed up builds
+[[plugins]]
+  package = "@netlify/plugin-cache-core"
+
+# Optional: If you're using Nx, this speeds up caching
+[build.processing]
+  skip_processing = true
+
