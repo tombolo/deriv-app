@@ -99,7 +99,7 @@ const OptionsAndMultipliersListing = () => {
         </>
     ) : (
         <>
-            <Localize i18n_default_text='Predict the market, profit if you’re right, risk only what you put in.' />{' '}
+            <Localize i18n_default_text='tombolo Predict the market, profit if you’re right, risk only what you put in.' />{' '}
             <WalletLink staticUrl='/trade-types/options/digital-options/up-and-down/'>
                 <Localize i18n_default_text='Learn more' />
             </WalletLink>

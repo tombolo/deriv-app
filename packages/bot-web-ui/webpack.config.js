@@ -33,6 +33,7 @@ module.exports = function (env) {
                 publicPath: '/dist/',
             },
             allowedHosts: 'all',
+            open: false,
         },
         mode: IS_RELEASE ? 'production' : 'development',
         devtool: IS_RELEASE ? 'source-map' : 'eval-cheap-module-source-map',

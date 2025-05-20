@@ -1,0 +1,7 @@
+[build]
+  command = "npm run bootstrap && npm run build:one trader"
+  publish = "packages/trader/dist"
+
+[context.production.environment]
+  NODE_VERSION = "16.16.0"
+  NPM_VERSION = "7.21.0"

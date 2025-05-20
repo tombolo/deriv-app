@@ -41,7 +41,7 @@ const AppWrapper = observer(() => {
     const { ui } = useStore();
     const { url_hashed_values, is_desktop } = ui;
 
-    const hash = ['dashboard', 'bot_builder', 'chart', 'tutorial'];
+    const hash = ['dashboard', 'bot_builder', 'chart', 'tutorial', 'dtrader'];
 
     let tab_value: number | string = active_tab;
     const GetHashedValue = (tab: number) => {
@@ -186,13 +186,26 @@ const AppWrapper = observer(() => {
                                 <Tutorial handleTabChange={handleTabChange} />
                             </div>
                         </div>
+
+
+                        <div
+                            icon='IcTutorialsTabs'
+                            label={<Localize i18n_default_text='Dtrader' />}
+                            id='id-dtrader'
+                        >
+                            <div className='tutorials-wrapper'>
+                                <Tutorial handleTabChange={handleTabChange} />
+                            </div>
+                        </div>
+
+                        
                     </Tabs>
                 </div>
             </div>
             {is_desktop ? (
                 <>
                     <div className='main__run-strategy-wrapper'>
-                        {active_tab !== 4 && (
+                        {active_tab !== 5 && (
                             <>
                                 <RunStrategy />
                                 <RunPanel />
