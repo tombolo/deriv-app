@@ -1,5 +1,5 @@
 [build]
-  command = "npm run bootstrap && npm run build:one trader"
+  command = "npm run bootstrap && npm run generate-icons && npm run build:one trader"
   publish = "dist/packages/trader/dist"
   environment = { NODE_VERSION = "20.19.1" }
 
