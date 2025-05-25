@@ -707,19 +707,7 @@ export default class TradeStore extends BaseStore {
         );
     }
 
-    get has_open_accu_contract() {
-        return (
-            this.is_accumulator &&
-            !!this.root_store.portfolio.open_accu_contract &&
-            !!this.root_store.portfolio.active_positions.find(
-                (position: { type: string; contract_info: { underlying?: string } }) =>
-                    isAccumulatorContract(position.type) &&
-                    position.contract_info.underlying !== undefined &&
-                    position.contract_info.underlying === this.symbol
-            )
-        );
-    }
-
+   
     resetAccumulatorData() {
         if (!isEmptyObject(this.root_store.contract_trade.accumulator_barriers_data)) {
             this.root_store.contract_trade.clearAccumulatorBarriersData();
