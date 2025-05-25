@@ -29,7 +29,6 @@ export const PlatformIcons = {
     DBot,
     Demo,
     Derived,
-    DerivGo,
     DerivGoBlack,
     DerivLogo,
     DerivTradingLogo,

@@ -17,7 +17,7 @@ type TRoutingHistory = {
 export const platform_name = Object.freeze({
     DBot: getPlatformSettings('dbot').name,
     DTrader: getPlatformSettings('trader').name,
-    DerivGO: getPlatformSettings('go').name,
+    
 });
 
 export const CFD_PLATFORMS = Object.freeze({
