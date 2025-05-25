@@ -17,9 +17,6 @@ type TRoutingHistory = {
 export const platform_name = Object.freeze({
     DBot: getPlatformSettings('dbot').name,
     DTrader: getPlatformSettings('trader').name,
-    DXtrade: getPlatformSettings('dxtrade').name,
-    DMT5: getPlatformSettings('mt5').name,
-    SmartTrader: getPlatformSettings('smarttrader').name,
     DerivGO: getPlatformSettings('go').name,
 });
 
@@ -51,8 +48,7 @@ export const isNavigationFromTradersHubOS = () => window.sessionStorage.getItem(
 
 export const getPathname = () => {
     if (isBot()) return platform_name.DBot;
-    if (isMT5()) return platform_name.DMT5;
-    if (isDXtrade()) return platform_name.DXtrade;
+    
     switch (window.location.pathname.split('/')[1]) {
         case '':
             return platform_name.DTrader;
@@ -60,8 +56,7 @@ export const getPathname = () => {
             return 'Reports';
         case 'cashier':
             return 'Cashier';
-        default:
-            return platform_name.SmartTrader;
+        
     }
 };
 
@@ -70,38 +65,18 @@ export const getPlatformInformation = (routing_history: TRoutingHistory) => {
         return { header: platform_name.DBot, icon: getPlatformSettings('dbot').icon };
     }
 
-    if (isMT5() || isNavigationFromPlatform(routing_history, routes.mt5)) {
-        return { header: platform_name.DMT5, icon: getPlatformSettings('mt5').icon };
-    }
-
-    if (isDXtrade() || isNavigationFromPlatform(routing_history, routes.dxtrade)) {
-        return { header: platform_name.DXtrade, icon: getPlatformSettings('dxtrade').icon };
-    }
-
-    if (isNavigationFromExternalPlatform(routing_history, routes.smarttrader)) {
-        return { header: platform_name.SmartTrader, icon: getPlatformSettings('smarttrader').icon };
-    }
-
     return { header: platform_name.DTrader, icon: getPlatformSettings('trader').icon };
 };
 
 export const getActivePlatform = (routing_history: TRoutingHistory) => {
     if (isBot() || isNavigationFromPlatform(routing_history, routes.bot)) return platform_name.DBot;
-    if (isMT5() || isNavigationFromPlatform(routing_history, routes.mt5)) return platform_name.DMT5;
-    if (isDXtrade() || isNavigationFromPlatform(routing_history, routes.dxtrade)) return platform_name.DXtrade;
-    if (isNavigationFromExternalPlatform(routing_history, routes.smarttrader)) return platform_name.SmartTrader;
+
     return platform_name.DTrader;
 };
 
 export const getPlatformRedirect = (routing_history: TRoutingHistory) => {
     if (isBot() || isNavigationFromPlatform(routing_history, routes.bot))
         return { name: platform_name.DBot, route: routes.bot };
-    if (isMT5() || isNavigationFromPlatform(routing_history, routes.mt5))
-        return { name: platform_name.DMT5, route: routes.mt5 };
-    if (isDXtrade() || isNavigationFromPlatform(routing_history, routes.dxtrade))
-        return { name: platform_name.DXtrade, route: routes.dxtrade };
-    if (isNavigationFromExternalPlatform(routing_history, routes.smarttrader))
-        return { name: platform_name.SmartTrader, route: routes.smarttrader };
     if (isNavigationFromP2PV2()) return { name: 'P2P', ref: 'p2p_v2', route: routes.cashier_p2p };
     if (isNavigationFromExternalPlatform(routing_history, routes.cashier_p2p))
         return { name: 'P2P', route: routes.cashier_p2p };

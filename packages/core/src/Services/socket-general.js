@@ -246,7 +246,7 @@ const BinarySocketGeneral = (() => {
                     if (action === 'system_email_change') {
                         return;
                     }
-                    if (active_platform === 'Deriv MT5') {
+                    if (active_platform === 'Deriv MT5add') {
                         redirect_to = routes.mt5;
                     }
                     common_store.routeTo(redirect_to);

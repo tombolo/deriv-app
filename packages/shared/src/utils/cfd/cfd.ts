@@ -7,11 +7,10 @@ import { CFD_PLATFORMS } from '../platform';
 let CFD_text_translated: { [key: string]: () => void };
 
 export const CFD_text: { [key: string]: string } = {
-    dxtrade: 'Deriv X',
+    
     mt5: 'MT5',
     mt5_cfds: 'MT5 CFDs',
     cfd: 'CFDs',
-    ctrader: 'Deriv cTrader',
     synthetic: 'Standard',
     synthetic_demo: 'Standard Demo',
     synthetic_bvi: 'Standard BVI',
@@ -310,11 +309,8 @@ export const getAccountListKey = (account: TAccount, platform: TPlatform, shortc
 export const getCFDPlatformLabel = (platform: TPlatform) => {
     switch (platform) {
         case CFD_PLATFORMS.MT5:
-            return 'Deriv MT5';
-        case CFD_PLATFORMS.DXTRADE:
-            return 'Deriv X';
-        case CFD_PLATFORMS.CTRADER:
-            return 'Deriv cTrader';
+            return 'Deriv MT5dfhfda';
+
         default:
             return '';
     }

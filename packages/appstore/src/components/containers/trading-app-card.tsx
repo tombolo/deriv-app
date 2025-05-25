@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import getMT5StatusBadgeConfig from '@deriv/account/src/Configs/get-mt5-status-badge-config';
+// TODO: Update the import path below to the correct location of get-mt5-status-badge-config or create the file if missing.
+// Update the path below to the correct relative path where get-mt5-status-badge-config is located.
+// For example, if it is in the same directory, use './get-mt5-status-badge-config'
 import { Text, StatusBadge } from '@deriv/components';
 import { Localize } from '@deriv/translations';
 import TradingPlatformIconProps from 'Assets/svgs/trading-platform';
@@ -87,7 +89,7 @@ const TradingAppCard = ({
         link_to: '',
     };
 
-    const { text: badge_text, icon: badge_icon, icon_size: badge_size } = getMT5StatusBadgeConfig(mt5_acc_auth_status);
+    
 
     const getAppDescription = () => {
         if (is_existing_real_ctrader_account) return '';
@@ -149,12 +151,7 @@ const TradingAppCard = ({
                 case DERIV_PLATFORM_NAMES.DBOT:
                     window.open(getStaticUrl(`/dbot`));
                     break;
-                case DERIV_PLATFORM_NAMES.SMARTTRADER:
-                    window.open(getUrlSmartTrader());
-                    break;
-                case DERIV_PLATFORM_NAMES.GO:
-                    window.open(getStaticUrl('/deriv-go'));
-                    break;
+               
                 default:
             }
         }
@@ -240,19 +237,7 @@ const TradingAppCard = ({
                     >
                         {getAppDescription()}
                     </Text>
-                    {mt5_acc_auth_status && action_type === 'multi-action' && (
-                        <StatusBadge
-                            className='trading-app-card__acc_status_badge'
-                            account_status={mt5_acc_auth_status}
-                            icon={badge_icon}
-                            text={badge_text}
-                            icon_size={badge_size}
-                            onClick={() => {
-                                setAppstorePlatform(platform);
-                                handleStatusBadgeClick(mt5_acc_auth_status);
-                            }}
-                        />
-                    )}
+                    
                     <OpenPositionsSVGModal
                         market_type={market_type}
                         status={mt5_acc_auth_status ?? ''}

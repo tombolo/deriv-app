@@ -10,9 +10,7 @@ const CFDsTitle = () => {
     if (!isDesktop) return null;
     return (
         <div className='cfds-title'>
-            <Text size='sm' weight='bold' color='prominent'>
-                <Localize i18n_default_text='CFDs' />
-            </Text>
+            
         </div>
     );
 };

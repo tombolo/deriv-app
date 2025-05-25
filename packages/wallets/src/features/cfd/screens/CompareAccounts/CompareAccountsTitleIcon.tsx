@@ -67,7 +67,7 @@ const getAccountCardTitle = (values: TGetAccountCardTitleValues) => {
             case CFD_PLATFORMS.DXTRADE:
                 return isDemo ? localize('Deriv X Demo') : localize('Deriv X');
             case CFD_PLATFORMS.CTRADER:
-                return isDemo ? localize('Deriv cTrader Demo') : localize('Deriv cTrader');
+                return isDemo ? localize('Deriv cTrader Demo') : localize('Deriv cTrader sfFWQ');
             default:
                 return '';
         }

@@ -29,25 +29,22 @@ const TradersHubHomeButton = observer(() => {
             const account_currency = url_params.get('account') || window.sessionStorage.getItem('account');
 
             window.location.href = `${redirectUrl}/redirect?action=redirect_to&redirect_to=home${account_currency ? `&account=${account_currency}` : ''}`;
-        } else {
-            history.push(routes.traders_hub);
-        }
+        } 
+        
     };
 
     return (
         <div
             data-testid='dt_traders_hub_home_button'
-            className={classNames('traders-hub-header__tradershub', {
-                'traders-hub-header__tradershub--active':
-                    pathname === routes.traders_hub || pathname === routes.traders_hub_v2,
-            })}
+            
+            
             onClick={handleTradershubRedirect}
         >
             <div className='traders-hub-header__tradershub--home-logo'>
                 <Icon icon={TradersHubIcon} size={is_dark_mode_on ? 15 : 17} />
             </div>
             <Text className='traders-hub-header__tradershub--text'>
-                <Localize i18n_default_text="Paigey Trading Hub" />
+                <Localize i18n_default_text="Paigey Trading Huba" />
             </Text>
         </div>
     );

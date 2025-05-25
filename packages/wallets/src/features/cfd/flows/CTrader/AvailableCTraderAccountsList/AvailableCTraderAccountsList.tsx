@@ -29,13 +29,7 @@ const AvailableCTraderAccountsList: React.FC = () => {
     const accountType = activeWallet?.is_virtual ? 'demo' : 'real';
 
     const onSubmit = () => {
-        mutate({
-            payload: {
-                account_type: accountType,
-                market_type: 'all',
-                platform: PlatformDetails.ctrader.platform,
-            },
-        });
+       
     };
 
     useEffect(() => {
@@ -62,16 +56,9 @@ const AvailableCTraderAccountsList: React.FC = () => {
 
     return (
         <TradingAccountCard disabled={isCFDAccountCreationLoading || isCFDAccountCreationSuccess} onClick={onSubmit}>
-            <TradingAccountCard.Icon>{PlatformDetails.ctrader.icon}</TradingAccountCard.Icon>
+            
             <TradingAccountCard.Section>
-                <TradingAccountCard.Content>
-                    <Text align='start' size='sm'>
-                        {PlatformDetails.ctrader.title}
-                    </Text>
-                    <Text align='start' size='xs'>
-                        <Localize i18n_default_text='CFDs on financial and derived instruments with copy trading.' />
-                    </Text>
-                </TradingAccountCard.Content>
+                
                 <TradingAccountCard.Button>
                     {isRtl ? (
                         <LabelPairedChevronLeftCaptionRegularIcon width={16} />

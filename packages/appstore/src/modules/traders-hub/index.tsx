@@ -36,7 +36,7 @@ const OrderedPlatformSections = observer(
                 })}
             >
                 {is_options_and_multipliers_visible && <OptionsAndMultipliersListing />}
-                {is_cfd_visible && <CFDsListing />}
+               
             </div>
         );
     }
@@ -89,7 +89,7 @@ const TradersHub = observer(() => {
     const eu_title = is_eu_demo || is_eu_real || is_eu_user;
     const getPlatformToggleOptions = () => [
         { text: eu_title ? localize('Multipliers') : localize('Options'), value: 'options' },
-        { text: localize('CFDs'), value: 'cfd' },
+       
     ];
     const platform_toggle_options = getPlatformToggleOptions();
     const platform_toggle_options_eu = getPlatformToggleOptions().reverse();
@@ -109,37 +109,20 @@ const TradersHub = observer(() => {
     const should_show_cfd_section = !!(is_mt5_allowed && is_cfd_accounts_supported);
 
     const getOrderedPlatformSections = () => {
-        if (should_show_cfd_section) {
-            return (
-                <OrderedPlatformSections
-                    is_cfd_visible={selected_platform_type === 'cfd'}
-                    is_options_and_multipliers_visible={selected_platform_type === 'options'}
-                />
-            );
-        }
-        return <OrderedPlatformSections is_cfd_visible={false} is_options_and_multipliers_visible={true} />;
+         return <OrderedPlatformSections is_cfd_visible={false} is_options_and_multipliers_visible={true} />;
     };
+        
 
     const desktopContent = !is_landing_company_loaded ? (
-        <OrderedPlatformSections />
+        <OrderedPlatformSections is_cfd_visible={false} />
     ) : (
-        <OrderedPlatformSections is_cfd_visible={should_show_cfd_section} />
+        <OrderedPlatformSections is_cfd_visible={false} />
     );
 
     const mobileTabletContent = (
         <React.Fragment>
             {is_landing_company_loaded ? (
-                should_show_cfd_section && (
-                    <ButtonToggle
-                        buttons_arr={is_eu_user ? platform_toggle_options_eu : platform_toggle_options}
-                        className='traders-hub__button-toggle'
-                        has_rounded_button
-                        is_traders_hub={window.location.pathname === routes.traders_hub}
-                        name='platform_type'
-                        onChange={platformTypeChange}
-                        value={selected_platform_type}
-                    />
-                )
+                null
             ) : (
                 <ButtonToggleLoader />
             )}

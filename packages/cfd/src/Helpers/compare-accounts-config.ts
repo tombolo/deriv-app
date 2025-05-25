@@ -38,7 +38,7 @@ const getHighlightedIconLabel = (
         return localize('Forex: standard/micro');
     };
     const getIdForInstruments = (instruments: TModifiedTradingPlatformAvailableAccount['instruments']) => {
-        return instruments?.map(item => {
+        return instruments?.map((item: string) => {
             if (item.toLowerCase().includes('forex')) {
                 return 'forex';
             } else if (item === 'ETFs') {
@@ -94,36 +94,20 @@ const getAccountCardTitle = (shortcode: string, is_demo?: boolean) => {
             return is_demo ? localize('Swap-Free demo') : localize('Swap-Free');
         case MARKET_TYPE_SHORTCODE.ALL_ZERO_SPREAD_BVI:
             return is_demo ? localize('Zero Spread demo') : localize('Zero Spread');
-        case CFD_PLATFORMS.DXTRADE:
-            return is_demo ? localize('Deriv X demo') : localize('Deriv X');
-        case CFD_PLATFORMS.CTRADER:
-            return is_demo ? localize('Deriv cTrader demo') : localize('Deriv cTrader');
-        default:
-            return is_demo ? localize('CFDs demo') : localize('CFDs');
+        
     }
 };
 
 // Get the Platform label
 const getPlatformLabel = (shortcode?: string) => {
     switch (shortcode) {
-        case CFD_PLATFORMS.DXTRADE:
-            return localize('Deriv X');
-        case CFD_PLATFORMS.CFDS:
-            return localize('Other CFDs Platform');
-        case CFD_PLATFORMS.CTRADER:
-            return localize('Deriv cTrader');
-        case CFD_PLATFORMS.MT5:
-        default:
-            return localize('MT5 Platform');
+        
     }
 };
 
 // Object to map the platform label
 const platformsHeaderLabel = {
-    mt5: localize('MT5 Platform'),
-    ctrader: localize('Deriv cTrader'),
-    derivx: localize('Deriv X'),
-    other_cfds: localize('Other CFDs Platform'),
+    
 };
 
 // Get the Account Icons based on the market type
@@ -169,14 +153,7 @@ const getMarketType = (trading_platforms: TModifiedTradingPlatformAvailableAccou
 // Get the color of Header based on the platform
 const getHeaderColor = (shortcode: string) => {
     switch (shortcode) {
-        case platformsHeaderLabel.ctrader:
-            return 'orange';
-        case platformsHeaderLabel.derivx:
-            return 'green';
-        case platformsHeaderLabel.mt5:
-        case platformsHeaderLabel.other_cfds:
-        default:
-            return 'blue';
+       
     }
 };
 

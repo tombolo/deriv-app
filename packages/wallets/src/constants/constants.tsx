@@ -52,22 +52,6 @@ export const getOptionsAndMultipliersContent = (
         redirect: appendSearchParamsToUrl(getUrlBot()),
         title: 'Deriv Bot',
     },
-    {
-        availability: 'Non-EU',
-        description: localize('The legacy options trading platform.'),
-        isExternal: true,
-        key: 'smarttrader',
-        redirect: appendSearchParamsToUrl(getUrlSmartTrader()),
-        title: 'SmartTrader',
-    },
-    {
-        availability: 'Non-EU',
-        description: localize('The mobile app for trading multipliers and accumulators.'),
-        isExternal: true,
-        key: 'derivgo',
-        redirect: getStaticUrl('/deriv-go'),
-        title: 'Deriv GO',
-    },
 ];
 
 export const ACCOUNT_VERIFICATION_STATUSES = {

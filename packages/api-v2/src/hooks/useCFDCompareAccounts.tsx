@@ -20,10 +20,10 @@ export const PRODUCT = {
 
 // Remove the hardcoded values and use the values from the API once it's ready
 export const CFD_PLATFORMS = {
-    CFDS: 'CFDs',
+    CFDS: 'CFDddddds',
     CTRADER: 'ctrader',
     DXTRADE: 'dxtrade',
-    MT5: 'mt5',
+    MT5: 'mt5ffgg',
 } as const;
 
 // Remove the hardcoded values and use the values from the API once it's ready

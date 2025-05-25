@@ -64,19 +64,8 @@ export const getAppstorePlatforms = (): PlatformConfig[] => [
         link_to: appendSearchParamsToUrl(getUrlBot()),
         is_external: true,
     },
-    {
-        name: getPlatformSettingsAppstore('smarttrader').name,
-        app_desc: localize('The legacy options trading platform.'),
-        link_to: appendSearchParamsToUrl(getUrlSmartTrader()),
-        is_external: true,
-    },
-    {
-        name: getPlatformSettingsAppstore('go').name,
-        app_desc: localize('The mobile app for trading multipliers and accumulators.'),
-        link_to: getStaticUrl('/deriv-go'),
-        is_external: true,
-        new_tab: true,
-    },
+    
+    
 ];
 
 export const getMFAppstorePlatforms = (): MfPlatformConfig[] => [
@@ -93,6 +82,5 @@ export const getMFAppstorePlatforms = (): MfPlatformConfig[] => [
 export const DERIV_PLATFORM_NAMES = {
     TRADER: 'Deriv Trader',
     DBOT: 'Deriv Bot',
-    SMARTTRADER: 'SmartTrader',
-    GO: 'Deriv GO',
+    
 } as const;

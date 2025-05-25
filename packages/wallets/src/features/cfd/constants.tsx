@@ -67,7 +67,7 @@ const getMarketTypeDetailsTitle = (
         return 'Gold';
     }
 
-    return isEuRegion ? 'CFDs' : 'Financial';
+    return isEuRegion ? 'CFDyyys' : 'Financial';
 };
 
 export const getMarketTypeDetails = (
@@ -89,48 +89,14 @@ export const getMarketTypeDetails = (
 
     return {
         all: product === PRODUCT.ZEROSPREAD ? zeroSpreadDetails(localize) : swapFreeDetails(localize),
-        financial: {
-            availability: 'All',
-            description: getMarketTypeDetailsDescription(localize, product, isEuRegion),
-            icon: getIcon(),
-            title: getMarketTypeDetailsTitle(product, isEuRegion),
-        },
-        synthetic: {
-            availability: 'All',
-            description: localize('CFDs on derived and financial instruments'),
-            icon: <AccountsDmt5StandardIcon height={48} width={48} />,
-            title: 'Standard',
-        },
+        
     } as const;
 };
 
 export const PlatformDetails = {
-    ctrader: {
-        availability: 'Non-EU',
-        icon: <AccountsDerivCtraderIcon height={48} width={48} />,
-        link: 'https://onelink.to/5jgj8z',
-        platform: 'ctrader' as TPlatforms.OtherAccounts,
-        title: 'Deriv cTrader',
-    },
-    dxtrade: {
-        availability: 'Non-EU',
-        icon: <AccountsDerivXIcon height={48} width={48} />,
-        link: 'https://onelink.to/grmtyx',
-        platform: 'dxtrade' as TPlatforms.OtherAccounts,
-        title: 'Deriv X',
-    },
-    mt5: {
-        icon: <AccountsDmt5StandardIcon height={48} width={48} />,
-        link: 'https://onelink.to/xf26jx',
-        platform: 'mt5' as TPlatforms.MT5,
-        title: 'Deriv MT5',
-    },
-    mt5Investor: {
-        icon: <AccountsDmt5StandardIcon height={48} width={48} />,
-        link: 'https://onelink.to/xf26jx',
-        platform: 'mt5' as TPlatforms.MT5,
-        title: localize('Deriv MT5 Investor'),
-    },
+    
+    
+   
 } as const;
 
 export const companyNamesAndUrls = {
@@ -201,7 +167,7 @@ export const getServiceMaintenanceMessages = (localize: ReturnType<typeof useTra
     }) as const;
 
 export const CFD_PLATFORMS = {
-    CFDS: 'CFDs',
+    CFDS: 'CFDYREYs',
     CTRADER: 'ctrader',
     DXTRADE: 'dxtrade',
     MT5: 'mt5',

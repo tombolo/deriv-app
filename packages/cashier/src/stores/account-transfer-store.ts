@@ -359,11 +359,9 @@ export default class AccountTransferStore {
         const arr_accounts: TTransferAccount | TAccount[] = [];
         this.setSelectedTo({}); // set selected to empty each time so we can redetermine its value on reload
 
-        accounts?.forEach((account: TTransferAccount) => {
+        accounts?.forEach((account: any) => {
             const cfd_platforms = {
-                mt5: { name: 'Deriv MT5', icon: 'IcMt5' },
-                ctrader: { name: 'Deriv cTrader', icon: 'IcBrand' },
-                dxtrade: { name: 'Deriv X', icon: 'IcRebranding' },
+                
             };
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             const is_cfd = Object.keys(cfd_platforms).includes(account.account_type!);
@@ -428,7 +426,7 @@ export default class AccountTransferStore {
                         ? `${combined_cfd_mt5_account.sub_title}${short_code_and_region}`
                         : account_text_display,
                 value: account.loginid,
-                balance: account.balance,
+                balance: account.balance !== undefined ? String(account.balance) : undefined,
                 currency: account.currency,
                 is_crypto: isCryptocurrency(account.currency),
                 is_mt: account.account_type === CFD_PLATFORMS.MT5,

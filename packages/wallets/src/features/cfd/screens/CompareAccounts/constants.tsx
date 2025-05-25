@@ -45,12 +45,7 @@ export const JURISDICTION = {
     VANUATU: 'vanuatu',
 } as const;
 
-export const platformLabel = (localize: ReturnType<typeof useTranslations>['localize']) => ({
-    CTrader: 'Deriv cTrader',
-    DerivX: 'Deriv X',
-    MT5: localize('MT5 Platform'),
-    OtherCFDs: localize('Other CFDs Platform'),
-});
+
 
 export const headerColor = {
     CTrader: 'orange',

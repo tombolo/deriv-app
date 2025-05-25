@@ -28,7 +28,7 @@ const AccountsList: FC<TProps> = ({ accountsActiveTabIndex, onTabClickHandler })
             <div className='wallets-accounts-list' data-testid='dt_desktop_accounts_list'>
                 <div className='wallets-accounts-list__content'>
                     <Divider color='var(--border-divider)' height={2} />
-                    <CFDPlatformsList />
+                    
                     <Divider color='var(--border-divider)' height={2} />
                     <OptionsAndMultipliersListing />
                 </div>
@@ -51,8 +51,7 @@ const AccountsList: FC<TProps> = ({ accountsActiveTabIndex, onTabClickHandler })
             wrapperClassName='wallets-accounts-list'
         >
             <Tab className='wallets-accounts-list__tab' title={localize('CFDs')}>
-                <CFDPlatformsList />
-                <Divider className='wallets-accounts-list__divider' color='var(--wallets-banner-border-color)' />
+               
             </Tab>
             <Tab className='wallets-accounts-list__tab' title={optionsAndMultipliersTabTitle}>
                 <OptionsAndMultipliersListing />

@@ -712,7 +712,10 @@ export default class TradeStore extends BaseStore {
             this.is_accumulator &&
             !!this.root_store.portfolio.open_accu_contract &&
             !!this.root_store.portfolio.active_positions.find(
-                ({ contract_info, type }) => isAccumulatorContract(type) && contract_info.underlying === this.symbol
+                (position: { type: string; contract_info: { underlying?: string } }) =>
+                    isAccumulatorContract(position.type) &&
+                    position.contract_info.underlying !== undefined &&
+                    position.contract_info.underlying === this.symbol
             )
         );
     }

@@ -410,88 +410,10 @@ export default class TradersHubStore extends BaseStore {
             is_logged_in,
             is_trading_platform_available_account_loaded,
         } = this.root_store.client;
-        const getAccountDesc = () => {
-            return !this.is_eu_user || this.is_demo_low_risk
-                ? localize('CFDs on financial instruments.')
-                : localize('CFDs on derived and financial instruments.');
-        };
-        const getSwapFreeAccountDesc = () => {
-            return localize('Swap-free CFDs on selected financial and derived instruments.');
-        };
-        const getZeroSpreadAccountDesc = () => {
-            return localize('Zero spread CFDs on financial and derived instruments');
-        };
+        
+        
 
-        const getFinancialName = () => {
-            if (!this.is_eu_user || this.is_demo_low_risk) {
-                return 'Financial';
-            }
-            if (is_logged_in) {
-                return 'CFDs';
-            }
-            return 'Standard';
-        };
-
-        const getMT5Accounts = [
-            {
-                name: 'Standard',
-                description: localize('CFDs on derived and financial instruments.'),
-                platform: CFD_PLATFORMS.MT5,
-                market_type: 'synthetic',
-                product: 'standard',
-                icon: 'Standard',
-                availability: 'Non-EU',
-            },
-            {
-                name: getFinancialName(),
-                description: getAccountDesc(),
-                platform: CFD_PLATFORMS.MT5,
-                market_type: 'financial',
-                product: 'financial',
-                icon: getFinancialName(),
-                availability: 'All',
-            },
-            ...(this.is_real
-                ? [
-                      {
-                          name: 'Financial STP',
-                          description: localize('Direct access to market prices.'),
-                          platform: CFD_PLATFORMS.MT5,
-                          market_type: 'financial',
-                          product: PRODUCT.STP,
-                          icon: 'Financial',
-                          availability: 'Non-EU',
-                      },
-                  ]
-                : []),
-            {
-                name: 'Swap-Free',
-                description: getSwapFreeAccountDesc(),
-                platform: CFD_PLATFORMS.MT5,
-                market_type: 'all',
-                product: 'swap_free',
-                icon: 'SwapFree',
-                availability: 'Non-EU',
-            },
-            {
-                name: localize('Zero Spread'),
-                description: getZeroSpreadAccountDesc(),
-                platform: CFD_PLATFORMS.MT5,
-                market_type: 'all',
-                product: 'zero_spread',
-                icon: 'ZeroSpread',
-                availability: 'Non-EU',
-            },
-            {
-                name: localize('Gold'),
-                description: localize('Trading opportunities on popular precious metals.'),
-                platform: CFD_PLATFORMS.MT5,
-                market_type: 'financial',
-                product: 'gold',
-                icon: 'Gold',
-                availability: 'Non-EU',
-            },
-        ];
+        
         const groupedByProduct = trading_platform_available_accounts.reduce((acc, item) => {
             const { product, is_default_jurisdiction, linkable_landing_companies } = item;
             if (this.is_demo || (this.no_CR_account && !this.is_eu_user)) {

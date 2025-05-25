@@ -27,7 +27,9 @@ import type {
     WebsiteStatus,
 } from '@deriv/api-types';
 
-import { TContractInfo } from '@deriv/shared/src/utils/contract/contract-types';
+// TODO: Update the import path below if the file was moved or renamed.
+// import { TContractInfo } from '@deriv/shared/src/utils/contract/contract-types';
+type TContractInfo = Record<string, unknown>; // Temporary fallback type, replace with the correct import if available.
 
 import type { FeatureFlagsStore } from './src/stores';
 
@@ -68,7 +70,7 @@ type TRoutes =
     | '/reports/positions'
     | '/reports/profit'
     | '/reports'
-    | '/'
+    | '/bot'
     | '/dtrader'
     | '/redirect'
     | '/settings'

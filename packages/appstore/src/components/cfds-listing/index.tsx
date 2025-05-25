@@ -209,9 +209,7 @@ const CFDsListing = observer(() => {
             title={
                 isDesktop && (
                     <div className='cfd-accounts__title'>
-                        <Text size='sm' weight='bold' color='prominent'>
-                            {localize('CFDs')}
-                        </Text>
+                        
                         <CompareAccount accounts_sub_text={accounts_sub_text} is_desktop />
                     </div>
                 )
@@ -221,9 +219,7 @@ const CFDsListing = observer(() => {
             {!isDesktop && <CompareAccount accounts_sub_text={accounts_sub_text} />}
             <AddDerivAccount />
             <div className='cfd-full-row' style={{ paddingTop: '2rem' }}>
-                <Text line_height='m' weight='bold' color='prominent'>
-                    {localize('Deriv MT5')}
-                </Text>
+                
             </div>
             {has_svg_accounts_to_migrate && is_landing_company_loaded && <MigrationBanner />}
             {is_mt5_list_loaded && combined_cfd_mt5_accounts.length ? (
@@ -375,9 +371,7 @@ const CFDsListing = observer(() => {
                     <div className='cfd-full-row'>
                         <hr className='divider' />
                     </div>
-                    <div className='cfd-full-row' style={{ paddingTop: '2rem' }}>
-                        <Text weight='bold'>{localize('Deriv cTrader')}</Text>
-                    </div>
+                    
                     {is_landing_company_loaded ? (
                         available_ctrader_accounts.map(account => {
                             const existing_accounts = getExistingAccounts(account.platform, account.market_type);
@@ -512,9 +506,7 @@ const CFDsListing = observer(() => {
                         </div>
 
                         <div className='cfd-full-row'>
-                            <Text line_height='m' weight='bold' color='prominent'>
-                                {localize('Deriv X')}
-                            </Text>
+                            
                         </div>
                     </React.Fragment>
                     {/* dxtrade */}

@@ -39,7 +39,7 @@ export const PlatformIcons = {
     Financial,
     SwapFree,
     Options,
-    SmartTrader,
+
     SmartTraderBlue,
     ZeroSpread,
     Standard,
