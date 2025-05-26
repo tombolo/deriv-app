@@ -17,8 +17,32 @@ import Dashboard from '../dashboard';
 import RunStrategy from '../dashboard/run-strategy';
 import Tutorial from '../tutorials';
 import { tour_list } from '../tutorials/dbot-tours/utils';
+import { getPlatformSettings, routes } from '@deriv/shared';
+
 
 const AppWrapper = observer(() => {
+
+    type TPlatformConfig = {
+        description: () => string;
+        href?: string;
+        icon: string;
+        link_to?: string;
+        name: string;
+        title: () => string;
+    };
+
+    const platform_config: TPlatformConfig[] = [
+        {
+            icon: getPlatformSettings('trader').icon,
+            title: () => getPlatformSettings('trader').name,
+            name: getPlatformSettings('trader').name,
+            description: () => localize('A whole new trading experience on a powerful yet easy to use platform.'),
+            link_to: routes.trade,
+        },
+        
+    ];
+
+
     const { dashboard, load_modal, run_panel, quick_strategy, summary_card } = useDBotStore();
     const {
         active_tab,
@@ -40,6 +64,8 @@ const AppWrapper = observer(() => {
     const init_render = React.useRef(true);
     const { ui } = useStore();
     const { url_hashed_values, is_desktop } = ui;
+    const history = useHistory();
+    const dtrader_config = platform_config.find(p => p.name === 'Deriv Trader');
 
     const hash = ['dashboard', 'bot_builder', 'chart', 'tutorial', 'dtrader'];
 
@@ -190,13 +216,11 @@ const AppWrapper = observer(() => {
 
                         <div
                             icon='IcTutorialsTabs'
-                            label={<Localize i18n_default_text='Dtrader' />}
+                            label={<Localize i18n_default_text='Dtrader nn' />}
                             id='id-dtrader'
-                        >
-                            <div className='tutorials-wrapper'>
-                                <Tutorial handleTabChange={handleTabChange} />
-                            </div>
-                        </div>
+                            onClick={() => dtrader_config?.link_to && (window.location.href = dtrader_config.link_to)}
+                            style={{ cursor: 'pointer' }}
+                        />
 
                         
                     </Tabs>
