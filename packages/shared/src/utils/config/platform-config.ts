@@ -35,13 +35,7 @@ export const platforms: TPlatforms = {
         route_to_path: '',
         url: process.env.NODE_ENV === 'production' ? 'https://p2p.deriv.com' : 'https://staging-p2p.deriv.com',
     },
-    derivgo: {
-        icon_text: undefined,
-        is_hard_redirect: true,
-        platform_name: 'Deriv GO',
-        route_to_path: '',
-        url: process.env.NODE_ENV === 'production' ? 'https://go.deriv.com' : 'https://staging-go.deriv.com',
-    },
+    
     tradershub_os: {
         icon_text: undefined,
         is_hard_redirect: true,

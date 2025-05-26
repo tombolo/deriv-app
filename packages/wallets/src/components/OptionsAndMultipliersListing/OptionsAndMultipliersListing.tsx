@@ -99,7 +99,7 @@ const OptionsAndMultipliersListing = () => {
         </>
     ) : (
         <>
-            <Localize i18n_default_text='tombolo Predict the market, profit if you’re right, risk only what you put in.' />{' '}
+            <Localize i18n_default_text='Predict the market, profit if you’re right, risk only what you put in.' />{' '}
             <WalletLink staticUrl='/trade-types/options/digital-options/up-and-down/'>
                 <Localize i18n_default_text='Learn more' />
             </WalletLink>
@@ -131,13 +131,13 @@ const OptionsAndMultipliersListing = () => {
             </section>
             <div
                 className={classNames('wallets-options-and-multipliers-listing__content', {
-                    'wallets-options-and-multipliers-listing__content--eu': isEuRegion,
+                    'wallets-options-and-multipliers-listing__content--eu': isEuRegion
                 })}
             >
                 {isLoading ? (
                     <OptionsAndMultipliersListingContentLoader />
                 ) : (
-                    <OptionsAndMultipliersListingContent isEuRegion={isEuRegion} />
+                    <OptionsAndMultipliersListingContent />
                 )}
             </div>
         </div>

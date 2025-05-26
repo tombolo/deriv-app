@@ -44,7 +44,7 @@ const TradersHubHomeButton = observer(() => {
                 <Icon icon={TradersHubIcon} size={is_dark_mode_on ? 15 : 17} />
             </div>
             <Text className='traders-hub-header__tradershub--text'>
-                <Localize i18n_default_text="Paigey Trading Huba" />
+                <Localize i18n_default_text="Paigey Trading Hub" />
             </Text>
         </div>
     );
