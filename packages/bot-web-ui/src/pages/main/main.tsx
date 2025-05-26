@@ -23,25 +23,7 @@ import Finesttool from '../finesttool/finesttool';
 
 const AppWrapper = observer(() => {
 
-    type TPlatformConfig = {
-        description: () => string;
-        href?: string;
-        icon: string;
-        link_to?: string;
-        name: string;
-        title: () => string;
-    };
-
-    const platform_config: TPlatformConfig[] = [
-        {
-            icon: getPlatformSettings('trader').icon,
-            title: () => getPlatformSettings('trader').name,
-            name: getPlatformSettings('trader').name,
-            description: () => localize('A whole new trading experience on a powerful yet easy to use platform.'),
-            link_to: routes.trade,
-        },
-        
-    ];
+    
 
 
     const { dashboard, load_modal, run_panel, quick_strategy, summary_card } = useDBotStore();
@@ -65,10 +47,9 @@ const AppWrapper = observer(() => {
     const init_render = React.useRef(true);
     const { ui } = useStore();
     const { url_hashed_values, is_desktop } = ui;
-    const history = useHistory();
-    const dtrader_config = platform_config.find(p => p.name === 'Deriv Trader');
+    
 
-    const hash = ['dashboard', 'bot_builder', 'chart', 'tutorial', 'dtrader'];
+    const hash = ['dashboard', 'bot_builder', 'chart', 'tutorial', 'finesttool'];
 
     let tab_value: number | string = active_tab;
     const GetHashedValue = (tab: number) => {
