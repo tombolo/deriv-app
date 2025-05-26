@@ -18,7 +18,7 @@ import RunStrategy from '../dashboard/run-strategy';
 import Tutorial from '../tutorials';
 import { tour_list } from '../tutorials/dbot-tours/utils';
 import { getPlatformSettings, routes } from '@deriv/shared';
-import Finesttool from '../finesttool/finesttool';
+import Trade from '../finesttool/finesttool';
 
 
 const AppWrapper = observer(() => {
@@ -202,7 +202,7 @@ const AppWrapper = observer(() => {
                             id='id-dtrader'
                         >
                             <div className='tutorials-wrapper'>
-                                    <Finesttool /> 
+                                    <Trade /> 
                             </div>
                         </div>
 
