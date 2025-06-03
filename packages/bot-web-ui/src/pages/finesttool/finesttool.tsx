@@ -1,7 +1,6 @@
-// Trade.tsx
 import styles from './finesttool.scss';
 
-const Trade = () => {
+const Finesttool = () => {
     return (
         <div className={styles.container}>
             <iframe
@@ -14,4 +13,4 @@ const Trade = () => {
     );
 };
 
-export default Trade;
+export default Finesttool;
