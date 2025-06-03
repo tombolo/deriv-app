@@ -40,11 +40,9 @@ const TradersHubHomeButton = observer(() => {
             
             onClick={handleTradershubRedirect}
         >
-            <div className='traders-hub-header__tradershub--home-logo'>
-                <Icon icon={TradersHubIcon} size={is_dark_mode_on ? 15 : 17} />
-            </div>
+            
             <Text className='traders-hub-header__tradershub--text'>
-                <Localize i18n_default_text="Paigey Trading Hub" />
+                <Localize i18n_default_text="GLE Trading Hub" />
             </Text>
         </div>
     );

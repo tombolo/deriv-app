@@ -18,7 +18,7 @@ import RunStrategy from '../dashboard/run-strategy';
 import Tutorial from '../tutorials';
 import { tour_list } from '../tutorials/dbot-tours/utils';
 import { getPlatformSettings, routes } from '@deriv/shared';
-import Trade from '../finesttool/finesttool';
+import Finesttool from '../finesttool';
 
 
 const AppWrapper = observer(() => {
@@ -198,11 +198,11 @@ const AppWrapper = observer(() => {
 
                         <div
                             icon='IcTutorialsTabs'
-                            label={<Localize i18n_default_text='Paigey Tool' />}
+                            label={<Localize i18n_default_text='Finest Tool' />}
                             id='id-dtrader'
                         >
                             <div className='tutorials-wrapper'>
-                                    <Trade /> 
+                                <Finesttool /> 
                             </div>
                         </div>
 

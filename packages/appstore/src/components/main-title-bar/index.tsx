@@ -38,7 +38,7 @@ const MainTitleBar = () => {
                 <div className='main-title-bar'>
                     <div className='main-title-bar__right'>
                         <Text size='m' weight='bold' color='prominent'>
-                            <Localize i18n_default_text="Paigey Trading Hubf" />
+                            <Localize i18n_default_text="GLE Trading Hub" />
                         </Text>
                         <AccountTypeDropdown />
                     </div>
@@ -50,7 +50,7 @@ const MainTitleBar = () => {
             ) : (
                 <React.Fragment>
                     <Text weight='bold' className='main-title-bar__text' color='prominent'>
-                            <Localize i18n_default_text="Paigey Trading Hubo" />
+                            <Localize i18n_default_text="GLE Trading Hub"/>
                     </Text>
                     <div className='main-title-bar-mobile'>
                         <div className='main-title-bar-mobile--account-type-dropdown'>
