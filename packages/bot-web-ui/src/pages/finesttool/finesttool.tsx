@@ -1,5 +1,5 @@
-import styles from './finesttool.module.scss';
-
+import React from 'react';
+import styles from './finesttool.module.scss'; // assuming you renamed it correctly
 
 const Finesttool = () => {
     return (
