@@ -1,4 +1,4 @@
 import Finesttool from './finesttool';
-import './finesttool.scss';
+import './finesttool.module.scss';
 
 export default Finesttool;
