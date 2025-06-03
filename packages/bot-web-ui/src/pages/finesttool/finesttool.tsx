@@ -1,4 +1,5 @@
-import styles from './finesttool.scss';
+import styles from './finesttool.module.scss';
+
 
 const Finesttool = () => {
     return (
