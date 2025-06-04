@@ -20,6 +20,7 @@ import Tutorial from '../tutorials';
 import { tour_list } from '../tutorials/dbot-tours/utils';
 import { getPlatformSettings } from '@deriv/shared';
 import Finesttool from '../finesttool';
+import RiskManagementCalculator from '../riskManagementCalculator';
 
 
 const AppWrapper = observer(() => {
@@ -50,7 +51,7 @@ const AppWrapper = observer(() => {
     const { url_hashed_values, is_desktop } = ui;
     
 
-    const hash = ['dashboard', 'bot_builder', 'chart', 'tutorial', 'finesttool'];
+    const hash = ['dashboard', 'bot_builder', 'chart', 'tutorial', 'finesttool', 'trader', 'risk_management_calculator'];
 
     let tab_value: number | string = active_tab;
     const GetHashedValue = (tab: number) => {
@@ -219,6 +220,16 @@ const AppWrapper = observer(() => {
                             }}
                             style={{ cursor: 'pointer' }}
                         />
+
+<div
+                            icon='IcTutorialsTabs'
+                            label={<Localize i18n_default_text='Risk Management' />}
+                            id='id-risk-management-calculator'
+                        >
+                            <div className='tutorials-wrapper'>
+                                <RiskManagementCalculator />
+                            </div>
+                        </div>
 
                         
                     </Tabs>
