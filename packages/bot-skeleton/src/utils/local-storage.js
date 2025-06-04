@@ -4,22 +4,22 @@ import DBotStore from '../scratch/dbot-store';
 import { save_types } from '../constants/save-type';
 
 // Import XML files from public folder
-const strategy1 = await fetch('/xml/binary_smasher_2.xml').then(response => response.text());
-const strategy2 = await fetch('/xml/binary_smasher.xml').then(response => response.text());
+const strategy1 = await fetch('/bots/Auto_robot_by_GLE1.xml').then(response => response.text());
+const strategy2 = await fetch('/bots/Over_under_bot_by_GLE.xml').then(response => response.text());
 
 // XML files configuration
 const XML_FILES_FROM_PUBLIC = [
     {
         id: 'strategy1',
         timestamp: Date.now() - 0, // Yesterday
-        name: 'Strategy 1 from XML file',
+        name: 'Auto robot by GLE1',
         xml: strategy1,
         save_type: save_types.LOCAL,
     },
     {
         id: 'strategy2',
         timestamp: Date.now() - 0, // Two days ago
-        name: 'Strategy 2 from XML file',
+        name: 'Over under bot by GLE',
         xml: strategy2,
         save_type: save_types.LOCAL,
     },
