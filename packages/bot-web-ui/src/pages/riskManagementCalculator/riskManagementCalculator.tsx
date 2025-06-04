@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './RiskManagementCalculator.module.scss';
+import styles from './riskManagementCalculator.module.scss';
 
 const RiskManagementCalculator = () => {
     const [capital, setCapital] = useState('');
