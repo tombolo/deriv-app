@@ -1,63 +1,94 @@
+import LZString from 'lz-string';
+import localForage from 'localforage';
+import DBotStore from '../scratch/dbot-store';
 import { save_types } from '../constants/save-type';
 
-// Function to fetch XML content from public folder
-const fetchBotXml = async botName => {
-    try {
-        const response = await fetch(`/bots/${botName}.xml`);
-        if (!response.ok) {
-            throw new Error(`Failed to load ${botName} bot`);
-        }
-        return await response.text();
-    } catch (error) {
-        console.error(`Error loading ${botName} bot:`, error);
-        return `<xml xmlns="https://developers.google.com/blockly/xml" is_dbot="true">
-                  <!-- Error loading ${botName} bot -->
-                </xml>`;
+// Hardcoded XML files
+const HARDCODED_XML_FILES = [
+    {
+        id: 'hardcoded1',
+        timestamp: Date.now() - 86400000, // Yesterday
+        name: 'Hardcoded Strategy 1',
+        xml: '<xml xmlns="https://developers.google.com/blockly/xml" is_dbot="true"><block type="trade_definition" deletable="false" movable="false"><field name="trade_type">RISE</field></block></xml>',
+        save_type: save_types.LOCAL,
+    },
+    {
+        id: 'hardcoded2',
+        timestamp: Date.now() - 172800000, // Two days ago
+        name: 'Hardcoded Strategy 2',
+        xml: '<xml xmlns="https://developers.google.com/blockly/xml" is_dbot="true"><block type="trade_definition" deletable="false" movable="false"><field name="trade_type">FALL</field></block></xml>',
+        save_type: save_types.LOCAL,
+    },
+];
+
+/**
+ * Save workspace to localStorage
+ * @param {String} save_type // constants/save_types.js (unsaved, local, googledrive)
+ * @param {Blockly.Events} event // Blockly event object
+ */
+export const saveWorkspaceToRecent = async (xml, save_type = save_types.UNSAVED) => {
+    const xml_dom = convertStrategyToIsDbot(xml);
+    const {
+        load_modal: { updateListStrategies },
+        save_modal,
+    } = DBotStore.instance;
+
+    const workspace_id = Blockly.derivWorkspace.current_strategy_id || Blockly.utils.idGenerator.genUid();
+    const workspaces = await getSavedWorkspaces();
+    const current_xml = Blockly.Xml.domToText(xml_dom);
+    const current_timestamp = Date.now();
+    const current_workspace_index = workspaces.findIndex(workspace => workspace.id === workspace_id);
+
+    if (current_workspace_index >= 0) {
+        const current_workspace = workspaces[current_workspace_index];
+        current_workspace.xml = current_xml;
+        current_workspace.name = save_modal.bot_name;
+        current_workspace.timestamp = current_timestamp;
+        current_workspace.save_type = save_type;
+    } else {
+        workspaces.push({
+            id: workspace_id,
+            timestamp: current_timestamp,
+            name: save_modal.bot_name,
+            xml: current_xml,
+            save_type,
+        });
     }
+
+    workspaces
+        .sort((a, b) => {
+            return new Date(a.timestamp) - new Date(b.timestamp);
+        })
+        .reverse();
+
+    if (workspaces.length > 10) {
+        workspaces.pop();
+    }
+    updateListStrategies(workspaces);
+    localForage.setItem('saved_workspaces', LZString.compress(JSON.stringify(workspaces)));
 };
 
-// Static bot definitions with async XML loading
-const getStaticBots = async () => {
-    const [dollarMinerXml, dollarFlipperXml, fastMoneyProXml, derivMinerProXml] = await Promise.all([
-        fetchBotXml('dollar_miner'),
-        fetchBotXml('dollar_flipper'),
-        fetchBotXml('fast_money_pro'),
-        fetchBotXml('deriv_miner_pro'),
-    ]);
-
-    return [
-        {
-            id: 'dollar_miner',
-            name: 'paigey over 0 ai bot 25',
-            xml: dollarMinerXml,
-            timestamp: Date.now(),
-            save_type: save_types.LOCAL,
-        },
-        {
-            id: 'dollar_flipper',
-            name: 'paigey under 7 ai bot 25',
-            xml: dollarFlipperXml,
-            timestamp: Date.now(),
-            save_type: save_types.LOCAL,
-        },
-        {
-            id: 'fast_money_pro_',
-            name: 'FPaigeys matches bot 2025',
-            xml: fastMoneyProXml,
-            timestamp: Date.now(),
-            save_type: save_types.LOCAL,
-        },
-        {
-            id: 'deriv_miner_pro',
-            name: 'paigeys new ai bot 2025',
-            xml: derivMinerProXml,
-            timestamp: Date.now(),
-            save_type: save_types.LOCAL,
-        },
-    ];
-};
-
-// Replace getSavedWorkspaces to return static bots
 export const getSavedWorkspaces = async () => {
-    return await getStaticBots();
+    // Return hardcoded XML files instead of loading from storage
+    return [...HARDCODED_XML_FILES];
+};
+
+export const removeExistingWorkspace = async workspace_id => {
+    const workspaces = await getSavedWorkspaces();
+    const current_workspace_index = workspaces.findIndex(workspace => workspace.id === workspace_id);
+
+    if (current_workspace_index >= 0) {
+        workspaces.splice(current_workspace_index, 1);
+    }
+
+    await localForage.setItem('saved_workspaces', LZString.compress(JSON.stringify(workspaces)));
+};
+
+export const convertStrategyToIsDbot = xml_dom => {
+    if (!xml_dom) return;
+    if (xml_dom.hasAttribute('collection') && xml_dom.getAttribute('collection') === 'true') {
+        xml_dom.setAttribute('collection', 'true');
+    }
+    xml_dom.setAttribute('is_dbot', 'true');
+    return xml_dom;
 };
