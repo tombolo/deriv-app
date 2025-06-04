@@ -203,7 +203,7 @@ const AppWrapper = observer(() => {
                         <div
                             label={
                                 <span style={{ color: '#000000', fontWeight: 'bold' }}>
-                                    <FaChessKnight size={18} />
+                                    <FaChessKnight size={16} />
                                     Tutorials
                                 </span>
                             }
@@ -218,7 +218,7 @@ const AppWrapper = observer(() => {
                         <div
                             label={
                                 <span style={{ color: '#000000', fontWeight: 'bold' }}>
-                                    <FaChartBar size={18} />
+                                    <FaChartBar size={16} />
                                     Analysis Tool
                                 </span>
                             }
@@ -232,7 +232,7 @@ const AppWrapper = observer(() => {
                         <div
                             label={
                                 <span style={{ color: '#000000', fontWeight: 'bold' }}>
-                                    <FaShieldAlt size={18} />
+                                    <FaShieldAlt size={16} />
                                     Risk Management
                                 </span>
                             }
@@ -246,7 +246,7 @@ const AppWrapper = observer(() => {
                         <div
                             label={
                                 <span style={{ color: '#000000', fontWeight: 'bold' }}>
-                                    <FaChessKnight size={18} />
+                                    <FaChessKnight size={16} />
                                     Strategy
                                 </span>
                             }
