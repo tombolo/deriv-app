@@ -168,7 +168,7 @@ const AppWrapper = observer(() => {
                         <div
                             icon='IcDashboardComponentTab'
                             label={
-                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
                                     Dashboard
                                 </span>
                             }
@@ -179,7 +179,7 @@ const AppWrapper = observer(() => {
                         <div
                             icon='IcBotBuilderTabIcon'
                             label={
-                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
                                     Bot Builder
                                 </span>
                             }
@@ -188,7 +188,7 @@ const AppWrapper = observer(() => {
                         <div
                             icon='IcChartsTabDbot'
                             label={
-                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
                                     Charts
                                 </span>
                             }
@@ -202,7 +202,7 @@ const AppWrapper = observer(() => {
                         </div>
                         <div
                             label={
-                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
                                     <FaChessKnight size={16} />
                                     Tutorials
                                 </span>
@@ -217,7 +217,7 @@ const AppWrapper = observer(() => {
 
                         <div
                             label={
-                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
                                     <FaChartBar size={16} />
                                     Analysis Tool
                                 </span>
@@ -231,7 +231,7 @@ const AppWrapper = observer(() => {
 
                         <div
                             label={
-                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
                                     <FaShieldAlt size={16} />
                                     Risk Management
                                 </span>
@@ -245,7 +245,7 @@ const AppWrapper = observer(() => {
 
                         <div
                             label={
-                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
                                     <FaChessKnight size={16} />
                                     Strategy
                                 </span>

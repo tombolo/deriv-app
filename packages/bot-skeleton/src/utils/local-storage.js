@@ -3,20 +3,24 @@ import localForage from 'localforage';
 import DBotStore from '../scratch/dbot-store';
 import { save_types } from '../constants/save-type';
 
-// Hardcoded XML files
-const HARDCODED_XML_FILES = [
+// Import XML files from public folder
+const strategy1 = await fetch('/xml/binary_smasher_2.xml').then(response => response.text());
+const strategy2 = await fetch('/xml/binary_smasher.xml').then(response => response.text());
+
+// XML files configuration
+const XML_FILES_FROM_PUBLIC = [
     {
-        id: 'hardcoded1',
-        timestamp: Date.now() - 86400000, // Yesterday
-        name: 'Hardcoded Strategy 1',
-        xml: '<xml xmlns="https://developers.google.com/blockly/xml" is_dbot="true"><block type="trade_definition" deletable="false" movable="false"><field name="trade_type">RISE</field></block></xml>',
+        id: 'strategy1',
+        timestamp: Date.now() - 0, // Yesterday
+        name: 'Strategy 1 from XML file',
+        xml: strategy1,
         save_type: save_types.LOCAL,
     },
     {
-        id: 'hardcoded2',
-        timestamp: Date.now() - 172800000, // Two days ago
-        name: 'Hardcoded Strategy 2',
-        xml: '<xml xmlns="https://developers.google.com/blockly/xml" is_dbot="true"><block type="trade_definition" deletable="false" movable="false"><field name="trade_type">FALL</field></block></xml>',
+        id: 'strategy2',
+        timestamp: Date.now() - 0, // Two days ago
+        name: 'Strategy 2 from XML file',
+        xml: strategy2,
         save_type: save_types.LOCAL,
     },
 ];
@@ -69,8 +73,8 @@ export const saveWorkspaceToRecent = async (xml, save_type = save_types.UNSAVED)
 };
 
 export const getSavedWorkspaces = async () => {
-    // Return hardcoded XML files instead of loading from storage
-    return [...HARDCODED_XML_FILES];
+    // Return XML files loaded from public folder
+    return [...XML_FILES_FROM_PUBLIC];
 };
 
 export const removeExistingWorkspace = async workspace_id => {
