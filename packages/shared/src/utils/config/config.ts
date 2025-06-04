@@ -94,8 +94,10 @@ export const checkAndSetEndpointFromUrl = () => {
             url_params.delete('qa_server');
             url_params.delete('app_id');
 
-            if (/^(^(www\.)?qa[0-9]{1,4}\.deriv.dev|(.*)\.derivws\.com)$/.test(qa_server) && /^[0-9]+$/.test(app_id)) {
+            // Only set valid WebSocket URL
+            if (/^(^(www\.)?qa[0-9]{1,4}\.deriv\.dev|(.*)\.derivws\.com)$/.test(qa_server) && /^[0-9]+$/.test(app_id)) {
                 localStorage.setItem('config.app_id', app_id);
+                // ✅ ONLY set host, NOT full URL
                 localStorage.setItem('config.server_url', `wss://${qa_server}/websockets/v3?app_id=${app_id}`);
             }
 
@@ -109,6 +111,7 @@ export const checkAndSetEndpointFromUrl = () => {
 
     return false;
 };
+
 
 export const getDebugServiceWorker = () => {
     const debug_service_worker_flag = window.localStorage.getItem('debug_service_worker');
