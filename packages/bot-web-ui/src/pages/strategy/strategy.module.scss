@@ -1,0 +1,101 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  .title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .strategySection {
+    margin-bottom: 3rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .strategyTitle {
+    color: #3498db;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+  }
+  
+  .strategyCard {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #3498db;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .subTitle {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .strategyList {
+    padding-left: 1.5rem;
+    
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .note {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+  }
+  
+  .importantNote {
+    background: #fff8e1;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+    border-left: 4px solid #f39c12;
+    color: #e67e22;
+    font-weight: 500;
+  }
+  
+  // Responsive design
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+    
+    .title {
+      font-size: 2rem;
+    }
+    
+    .strategyTitle {
+      font-size: 1.5rem;
+    }
+    
+    .subTitle {
+      font-size: 1.2rem;
+    }
+  }

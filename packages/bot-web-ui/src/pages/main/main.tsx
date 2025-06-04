@@ -21,6 +21,8 @@ import { tour_list } from '../tutorials/dbot-tours/utils';
 import { getPlatformSettings } from '@deriv/shared';
 import Finesttool from '../finesttool';
 import RiskManagementCalculator from '../riskManagementCalculator';
+import Strategy from '../strategy';
+import { FaChartBar, FaChartLine, FaPuzzlePiece, FaChessKnight, FaUsers, FaShieldAlt } from 'react-icons/fa';
 
 
 const AppWrapper = observer(() => {
@@ -160,13 +162,16 @@ const AppWrapper = observer(() => {
                     <Tabs
                         active_index={active_tab}
                         className='main__tabs'
-                        onTabItemChange={onEntered}
                         onTabItemClick={handleTabChange}
                         top
                     >
                         <div
                             icon='IcDashboardComponentTab'
-                            label={<Localize i18n_default_text='Dashboard' />}
+                            label={
+                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    Dashboard
+                                </span>
+                            }
                             id='id-dbot-dashboard'
                         >
                             <Dashboard handleTabChange={handleTabChange} />
@@ -198,11 +203,20 @@ const AppWrapper = observer(() => {
                         </div>
 
 
-                        <div
-                            icon='IcTutorialsTabs'
-                            label={<Localize i18n_default_text='Finest Tool' />}
+                        <div>
+                            label={
+                                <>
+                                        <FaChartBar
+                                                height='16px'
+                                                width='16px'
+                                        />
+                                        <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                        Analysis Tool
+                                        </span>
+                                </>
+                                }
                             id='id-finesttool'
-                        >
+
                             <div className='tutorials-wrapper'>
                                 <Finesttool /> 
                             </div>
@@ -210,13 +224,23 @@ const AppWrapper = observer(() => {
 
                         
 
-<div
+                        <div
                             icon='IcTutorialsTabs'
                             label={<Localize i18n_default_text='Risk Management' />}
                             id='id-risk-management-calculator'
                         >
                             <div className='tutorials-wrapper'>
                                 <RiskManagementCalculator />
+                            </div>
+                        </div>
+
+                        <div
+                            icon='IcTutorialsTabs'
+                            label={<Localize i18n_default_text='Strategy' />}
+                            id='id-strategy'
+                        >
+                            <div className='tutorials-wrapper'>
+                                <Strategy />
                             </div>
                         </div>
 
