@@ -201,9 +201,9 @@ const AppWrapper = observer(() => {
                             <Chart show_digits_stats={false} />
                         </div>
                         <div
-                            icon='IcTutorialsTabs'
                             label={
                                 <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    <FaChessKnight size={18} />
                                     Tutorials
                                 </span>
                             }
@@ -216,9 +216,9 @@ const AppWrapper = observer(() => {
 
 
                         <div
-                            icon='FaChartBar'
                             label={
                                 <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    <FaChartBar size={18} />
                                     Analysis Tool
                                 </span>
                             }
@@ -230,9 +230,9 @@ const AppWrapper = observer(() => {
                         
 
                         <div
-                            icon='FaShieldAlt'
                             label={
                                 <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    <FaShieldAlt size={18} />
                                     Risk Management
                                 </span>
                             }
@@ -244,9 +244,9 @@ const AppWrapper = observer(() => {
                         </div>
 
                         <div
-                            icon='FaChessKnight'
                             label={
                                 <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    <FaChessKnight size={18} />
                                     Strategy
                                 </span>
                             }
