@@ -389,8 +389,8 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                     getRoutesWithSubMenu(route_config, idx)
                                 )}
                                 {!has_wallet &&
-                                    {
-                                        /*<MobileDrawer.Item
+                                    
+                                        <MobileDrawer.Item
                                         className='header__menu-mobile-theme'
                                         onClick={e => {
                                             e.preventDefault();
@@ -408,8 +408,8 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                                 is_enabled={is_dark_mode}
                                             />
                                         </div>
-                                    </MobileDrawer.Item> */
-                                    }}
+                                    </MobileDrawer.Item>
+                                    }
                                 {HelpCentreRoute()}
                                 {is_logged_in ? (
                                     <React.Fragment>
@@ -435,42 +435,7 @@ const ToggleMenuDrawer = observer(({ platform_config }) => {
                                                 onClickLink={toggleDrawer}
                                             />
                                         </MobileDrawer.Item>
-                                        <MobileDrawer.Item>
-                                            <MenuLink
-                                                link_to='https://www.tiktok.com/@gletraders.com?_t=ZM-8wvMYf6TO00&_r=1' // Replace with your TikTok profile link
-                                                icon={<FaTiktok size={20} color='#000' />}
-                                                text={localize('TikTok')}
-                                                onClickLink={toggleDrawer}
-                                                is_external
-                                            />
-                                        </MobileDrawer.Item>
-                                        <MobileDrawer.Item>
-                                            <MenuLink
-                                                link_to='https://www.instagram.com/gletraders?igsh=MXdqdTRyYmx4OTR6OQ==' // Replace with your Instagram profile link
-                                                icon={<FaInstagram size={20} color='#E4405F' />}
-                                                text={localize('Instagram')}
-                                                onClickLink={toggleDrawer}
-                                                is_external
-                                            />
-                                        </MobileDrawer.Item>
-                                        <MobileDrawer.Item>
-                                            <MenuLink
-                                                link_to='https://wa.me/1234567890'
-                                                icon={<FaWhatsapp size={20} color='#25D366' />}
-                                                text={localize('WhatsApp')}
-                                                onClickLink={toggleDrawer}
-                                                is_external
-                                            />
-                                        </MobileDrawer.Item>
-                                        <MobileDrawer.Item>
-                                            <MenuLink
-                                                link_to='https://t.me/+9aI3zpSwoJw0ZDM0' // Replace with your Telegram link
-                                                icon={<FaTelegramPlane size={20} color='#229ED9' />}
-                                                text={localize('Telegram')}
-                                                onClickLink={toggleDrawer}
-                                                is_external
-                                            />
-                                        </MobileDrawer.Item>
+                                        
 
                                         {should_show_regulatory_information && (
                                             <MobileDrawer.Item className='header__menu-mobile-theme--trader-hub'>
