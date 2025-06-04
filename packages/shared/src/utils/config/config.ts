@@ -14,21 +14,20 @@ export const livechat_license_id = 12049137;
 export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7';
 
 export const domain_app_ids = {
-    // these domains as supported "production domains"
-    'gletraders.com': 80359, // Added your domain with the specified app ID
-    'deriv.app': 80359, // Changed to your app ID
-    'app.deriv.com': 80359, // Changed to your app ID
-    'staging-app.deriv.com': 80359, // Changed to your app ID
-    'app.deriv.me': 80359, // Changed to your app ID
-    'staging-app.deriv.me': 80359, // Changed to your app ID
-    'app.deriv.be': 80359, // Changed to your app ID
-    'staging-app.deriv.be': 80359, // Changed to your app ID
-    'binary.com': 80359, // Changed to your app ID
-    'test-app.deriv.com': 80359, // Changed to your app ID
+    'gletraders.com': 80359,
+    'deriv.app': 80359,
+    'app.deriv.com': 80359,
+    'staging-app.deriv.com': 80359,
+    'app.deriv.me': 80359,
+    'staging-app.deriv.me': 80359,
+    'app.deriv.be': 80359,
+    'staging-app.deriv.be': 80359,
+    'binary.com': 80359,
+    'test-app.deriv.com': 80359,
 };
 
 export const platform_app_ids = {
-    derivgo: 80359, // Changed to your app ID
+    derivgo: 80359,
 };
 
 export const getCurrentProductionDomain = () =>
@@ -40,10 +39,7 @@ export const isProduction = () => {
     return new RegExp(`^(${all_domains.join('|')})$`, 'i').test(window.location.hostname);
 };
 
-export const isTestLink = () => {
-    return /^((.*)\.binary\.sx)$/i.test(window.location.hostname);
-};
-
+export const isTestLink = () => /^((.*)\.binary\.sx)$/i.test(window.location.hostname);
 export const isLocal = () => /localhost(:\d+)?$/i.test(window.location.hostname);
 
 /**
@@ -51,14 +47,13 @@ export const isLocal = () => /localhost(:\d+)?$/i.test(window.location.hostname)
  */
 export const getAppId = () => {
     let app_id = null;
-    const user_app_id = '80359'; // Set to your app ID
+    const user_app_id = '80359';
     const config_app_id = window.localStorage.getItem('config.app_id');
     const current_domain = getCurrentProductionDomain() || '';
-    window.localStorage.removeItem('config.platform'); // Remove config stored in localstorage if there's any.
+    window.localStorage.removeItem('config.platform');
     const platform = window.sessionStorage.getItem('config.platform');
     const is_bot = isBot();
 
-    // Added platform at the top since this should take precedence over the config_app_id
     if (platform && platform_app_ids[platform as keyof typeof platform_app_ids]) {
         app_id = platform_app_ids[platform as keyof typeof platform_app_ids];
     } else if (config_app_id) {
@@ -79,26 +74,13 @@ export const getAppId = () => {
     return app_id;
 };
 
-export const getSocketURL = (is_wallets = false) => {
+// ✅ UPDATED TO USE CORRECT WEBSOCKET BASE ENDPOINT
+export const getSocketURL = () => {
     const local_storage_server_url = window.localStorage.getItem('config.server_url');
     if (local_storage_server_url) return local_storage_server_url;
 
-    let active_loginid_from_url;
-    const search = window.location.search;
-    if (search) {
-        const params = new URLSearchParams(document.location.search.substring(1));
-        active_loginid_from_url = params.get('acct1');
-    }
-    const local_storage_loginid = is_wallets
-        ? window.sessionStorage.getItem('active_wallet_loginid') || window.localStorage.getItem('active_wallet_loginid')
-        : window.sessionStorage.getItem('active_loginid') || window.localStorage.getItem('active_loginid');
-    const loginid = local_storage_loginid || active_loginid_from_url;
-    const is_real = loginid && !/^(VRT|VRW)/.test(loginid);
-
-    const server = is_real ? 'green' : 'blue';
-    const server_url = `${server}.derivws.com`;
-
-    return server_url;
+    const app_id = getAppId();
+    return `wss://ws.derivws.com/websockets/v3?app_id=${app_id}`;
 };
 
 export const checkAndSetEndpointFromUrl = () => {
@@ -114,15 +96,13 @@ export const checkAndSetEndpointFromUrl = () => {
 
             if (/^(^(www\.)?qa[0-9]{1,4}\.deriv.dev|(.*)\.derivws\.com)$/.test(qa_server) && /^[0-9]+$/.test(app_id)) {
                 localStorage.setItem('config.app_id', app_id);
-                localStorage.setItem('config.server_url', qa_server);
+                localStorage.setItem('config.server_url', `wss://${qa_server}/websockets/v3?app_id=${app_id}`);
             }
 
             const params = url_params.toString();
             const hash = location.hash;
 
-            location.href = `${location.protocol}//${location.hostname}${location.pathname}${params ? `?${params}` : ''
-                }${hash || ''}`;
-
+            location.href = `${location.protocol}//${location.hostname}${location.pathname}${params ? `?${params}` : ''}${hash || ''}`;
             return true;
         }
     }
@@ -133,6 +113,5 @@ export const checkAndSetEndpointFromUrl = () => {
 export const getDebugServiceWorker = () => {
     const debug_service_worker_flag = window.localStorage.getItem('debug_service_worker');
     if (debug_service_worker_flag) return !!parseInt(debug_service_worker_flag);
-
     return false;
 };
