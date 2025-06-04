@@ -18,7 +18,7 @@ import Dashboard from '../dashboard';
 import RunStrategy from '../dashboard/run-strategy';
 import Tutorial from '../tutorials';
 import { tour_list } from '../tutorials/dbot-tours/utils';
-import { getPlatformSettings, routes } from '@deriv/shared';
+import { getPlatformSettings } from '@deriv/shared';
 import Finesttool from '../finesttool';
 
 
