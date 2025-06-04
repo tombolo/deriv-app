@@ -208,18 +208,7 @@ const AppWrapper = observer(() => {
                             </div>
                         </div>
 
-                        <div
-                            icon='IcTutorialsTabs'
-                            label={<Localize i18n_default_text='Trader' />}
-                            id='id-trader'
-                            onClick={() => {
-                                // Preserve current query params and redirect to DTrader using routes.trade
-                                const url = new URL(window.location.href);
-                                url.pathname = routes.trade;
-                                window.location.href = url.toString();
-                            }}
-                            style={{ cursor: 'pointer' }}
-                        />
+                        
 
 <div
                             icon='IcTutorialsTabs'
