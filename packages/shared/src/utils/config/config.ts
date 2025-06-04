@@ -15,19 +15,20 @@ export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7';
 
 export const domain_app_ids = {
     // these domains as supported "production domains"
-    'deriv.app': 16929, // TODO: [app-link-refactor] - Remove backwards compatibility for `deriv.app`
-    'app.deriv.com': 16929,
-    'staging-app.deriv.com': 16303,
-    'app.deriv.me': 1411,
-    'staging-app.deriv.me': 1411, // TODO: setup staging for deriv.me
-    'app.deriv.be': 30767,
-    'staging-app.deriv.be': 31186,
-    'binary.com': 1,
-    'test-app.deriv.com': 51072,
+    'gletraders.com': 80359, // Added your domain with the specified app ID
+    'deriv.app': 80359, // Changed to your app ID
+    'app.deriv.com': 80359, // Changed to your app ID
+    'staging-app.deriv.com': 80359, // Changed to your app ID
+    'app.deriv.me': 80359, // Changed to your app ID
+    'staging-app.deriv.me': 80359, // Changed to your app ID
+    'app.deriv.be': 80359, // Changed to your app ID
+    'staging-app.deriv.be': 80359, // Changed to your app ID
+    'binary.com': 80359, // Changed to your app ID
+    'test-app.deriv.com': 80359, // Changed to your app ID
 };
 
 export const platform_app_ids = {
-    derivgo: 23789,
+    derivgo: 80359, // Changed to your app ID
 };
 
 export const getCurrentProductionDomain = () =>
@@ -50,12 +51,13 @@ export const isLocal = () => /localhost(:\d+)?$/i.test(window.location.hostname)
  */
 export const getAppId = () => {
     let app_id = null;
-    const user_app_id = ''; // you can insert Application ID of your registered application here
+    const user_app_id = '80359'; // Set to your app ID
     const config_app_id = window.localStorage.getItem('config.app_id');
     const current_domain = getCurrentProductionDomain() || '';
     window.localStorage.removeItem('config.platform'); // Remove config stored in localstorage if there's any.
     const platform = window.sessionStorage.getItem('config.platform');
     const is_bot = isBot();
+
     // Added platform at the top since this should take precedence over the config_app_id
     if (platform && platform_app_ids[platform as keyof typeof platform_app_ids]) {
         app_id = platform_app_ids[platform as keyof typeof platform_app_ids];
@@ -66,12 +68,12 @@ export const getAppId = () => {
         app_id = user_app_id;
     } else if (isStaging()) {
         window.localStorage.removeItem('config.default_app_id');
-        app_id = is_bot ? 19112 : domain_app_ids[current_domain as keyof typeof domain_app_ids] || 16303; // it's being used in endpoint chrome extension - please do not remove
+        app_id = is_bot ? 80359 : domain_app_ids[current_domain as keyof typeof domain_app_ids] || 80359;
     } else if (/localhost/i.test(window.location.hostname)) {
-        app_id = 36300;
+        app_id = 80359;
     } else {
         window.localStorage.removeItem('config.default_app_id');
-        app_id = is_bot ? 19111 : domain_app_ids[current_domain as keyof typeof domain_app_ids] || 16929;
+        app_id = is_bot ? 80359 : domain_app_ids[current_domain as keyof typeof domain_app_ids] || 80359;
     }
 
     return app_id;
@@ -118,9 +120,8 @@ export const checkAndSetEndpointFromUrl = () => {
             const params = url_params.toString();
             const hash = location.hash;
 
-            location.href = `${location.protocol}//${location.hostname}${location.pathname}${
-                params ? `?${params}` : ''
-            }${hash || ''}`;
+            location.href = `${location.protocol}//${location.hostname}${location.pathname}${params ? `?${params}` : ''
+                }${hash || ''}`;
 
             return true;
         }
