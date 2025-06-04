@@ -4,7 +4,6 @@
     overflow-y: auto;
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
-    color: #2d3748;
     padding: 0;
     margin: 0;
   }
@@ -17,7 +16,6 @@
   
   .title {
     text-align: center;
-    color: #2d3748;
     margin-bottom: 2.5rem;
     font-size: 2.5rem;
     font-weight: 700;
@@ -90,13 +88,13 @@
   }
   
   .subTitle {
-    color: #1e293b;
     font-size: 1.4rem;
     margin-top: 0;
     margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: #1e293b;
   }
   
   .strategyList {
@@ -125,21 +123,21 @@
   
   .note {
     font-style: italic;
-    color: #64748b;
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
     padding: 0.75rem;
     background: #f8fafc;
     border-radius: 8px;
+    color: #64748b;
   }
   
   .example {
     font-size: 0.95rem;
-    color: #64748b;
     padding: 0.75rem;
     background: #f8fafc;
     border-radius: 8px;
     border-left: 3px solid #94a3b8;
+    color: #64748b;
   }
   
   .importantNote {
@@ -148,12 +146,12 @@
     border-radius: 12px;
     margin-top: 2rem;
     border-left: 5px solid #f59e0b;
-    color: #92400e;
     font-weight: 500;
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     font-size: 1.1rem;
+    color: #92400e;
   }
   
   .warningIcon {
