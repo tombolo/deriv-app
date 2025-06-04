@@ -178,12 +178,20 @@ const AppWrapper = observer(() => {
                         </div>
                         <div
                             icon='IcBotBuilderTabIcon'
-                            label={<Localize i18n_default_text='Bot Builder' />}
+                            label={
+                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    Bot Builder
+                                </span>
+                            }
                             id='id-bot-builder'
                         />
                         <div
                             icon='IcChartsTabDbot'
-                            label={<Localize i18n_default_text='Charts' />}
+                            label={
+                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    Charts
+                                </span>
+                            }
                             id={
                                 is_chart_modal_visible || is_trading_view_modal_visible
                                     ? 'id-charts--disabled'
@@ -194,7 +202,11 @@ const AppWrapper = observer(() => {
                         </div>
                         <div
                             icon='IcTutorialsTabs'
-                            label={<Localize i18n_default_text='Tutorials' />}
+                            label={
+                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    Tutorials
+                                </span>
+                            }
                             id='id-tutorials'
                         >
                             <div className='tutorials-wrapper'>
@@ -203,30 +215,27 @@ const AppWrapper = observer(() => {
                         </div>
 
 
-                        <div>
+                        <div
+                            icon='FaChartBar'
                             label={
-                                <>
-                                        <FaChartBar
-                                                height='16px'
-                                                width='16px'
-                                        />
-                                        <span style={{ color: '#000000', fontWeight: 'bold' }}>
-                                        Analysis Tool
-                                        </span>
-                                </>
-                                }
-                            id='id-finesttool'
-
-                            <div className='tutorials-wrapper'>
-                                <Finesttool /> 
-                            </div>
+                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    Analysis Tool
+                                </span>
+                            }
+                            id='id-dbot-dashboard'
+                        >
+                            <Finesttool />
                         </div>
 
                         
 
                         <div
-                            icon='IcTutorialsTabs'
-                            label={<Localize i18n_default_text='Risk Management' />}
+                            icon='FaShieldAlt'
+                            label={
+                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    Risk Management
+                                </span>
+                            }
                             id='id-risk-management-calculator'
                         >
                             <div className='tutorials-wrapper'>
@@ -235,8 +244,12 @@ const AppWrapper = observer(() => {
                         </div>
 
                         <div
-                            icon='IcTutorialsTabs'
-                            label={<Localize i18n_default_text='Strategy' />}
+                            icon='FaChessKnight'
+                            label={
+                                <span style={{ color: '#000000', fontWeight: 'bold' }}>
+                                    Strategy
+                                </span>
+                            }
                             id='id-strategy'
                         >
                             <div className='tutorials-wrapper'>
