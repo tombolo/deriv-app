@@ -33,8 +33,7 @@ const BinarySocketBase = (() => {
         if (is_mock_server) {
             return 'ws://127.0.0.1:42069';
         }
-        return `${getSocketURL()}?app_id=${getAppId()}&l=${language}&brand=${website_name.toLowerCase()}`;
-
+        return `wss://ws.derivws.com/websockets/v3?app_id=${getAppId()}&l=${language}&brand=${website_name.toLowerCase()}`;
     };
 
     const isReady = () => hasReadyState(1);

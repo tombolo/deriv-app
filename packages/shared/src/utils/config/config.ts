@@ -78,9 +78,6 @@ export const getAppId = () => {
 export const getSocketURL = () => {
     const local_storage_server_url = window.localStorage.getItem('config.server_url');
     if (local_storage_server_url) return local_storage_server_url;
-
-    const app_id = getAppId();
-    return `wss://ws.derivws.com/websockets/v3?app_id=${app_id}`;
 };
 
 export const checkAndSetEndpointFromUrl = () => {
