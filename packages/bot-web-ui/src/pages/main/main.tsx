@@ -22,7 +22,7 @@ import { getPlatformSettings } from '@deriv/shared';
 import Finesttool from '../finesttool';
 import RiskManagementCalculator from '../riskManagementCalculator';
 import Strategy from '../strategy';
-import { FaChartBar, FaChartLine, FaPuzzlePiece, FaChessKnight, FaUsers, FaShieldAlt } from 'react-icons/fa';
+import { FaChartBar, FaChartLine, FaPuzzlePiece, FaChessKnight, FaUsers, FaShieldAlt, FaRobot, FaTachometerAlt } from 'react-icons/fa';
 
 
 const AppWrapper = observer(() => {
@@ -166,9 +166,10 @@ const AppWrapper = observer(() => {
                         top
                     >
                         <div
-                            icon='IcDashboardComponentTab'
+                            
                             label={
-                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
+                                <span style={{ color: '#2563eb', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
+                                    <FaTachometerAlt size={14} />
                                     Dashboard
                                 </span>
                             }
@@ -177,18 +178,19 @@ const AppWrapper = observer(() => {
                             <Dashboard handleTabChange={handleTabChange} />
                         </div>
                         <div
-                            icon='IcBotBuilderTabIcon'
+                            
                             label={
-                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
+                                <span style={{ color: '#2563eb', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
+                                    <FaRobot size={14} />
                                     Bot Builder
                                 </span>
                             }
                             id='id-bot-builder'
                         />
                         <div
-                            icon='IcChartsTabDbot'
                             label={
-                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
+                                <span style={{ color: '#2563eb', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
+                                    <FaChartLine size={14} />
                                     Charts
                                 </span>
                             }
@@ -202,8 +204,8 @@ const AppWrapper = observer(() => {
                         </div>
                         <div
                             label={
-                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
-                                    <FaChessKnight size={16} />
+                                <span style={{ color: '#2563eb', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
+                                    <FaChessKnight size={14} />
                                     Tutorials
                                 </span>
                             }
@@ -217,8 +219,8 @@ const AppWrapper = observer(() => {
 
                         <div
                             label={
-                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
-                                    <FaChartBar size={16} />
+                                <span style={{ color: '#2563eb', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
+                                    <FaChartBar size={14} />
                                     Analysis Tool
                                 </span>
                             }
@@ -231,8 +233,8 @@ const AppWrapper = observer(() => {
 
                         <div
                             label={
-                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
-                                    <FaShieldAlt size={16} />
+                                <span style={{ color: '#2563eb', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
+                                    <FaShieldAlt size={14} />
                                     Risk Management
                                 </span>
                             }
@@ -245,8 +247,8 @@ const AppWrapper = observer(() => {
 
                         <div
                             label={
-                                <span style={{ color: '#1e3a8a', fontWeight: 'bold' }}>
-                                    <FaChessKnight size={16} />
+                                <span style={{ color: '#2563eb', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center' }}>
+                                    <FaChessKnight size={14} />
                                     Strategy
                                 </span>
                             }
